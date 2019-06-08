@@ -15,22 +15,31 @@ class Triangle
     @@sides 
   end 
   
-  def kind 
-    
-    if self.sides.uniq.length == 1
-      :equilateral
-    elsif self.sides.uniq.length == self.sides.length #&& !self.sides.detect{|num| num.negative?} 
-     :scalene
-    elsif self.sides.uniq.length == 2 
-     :isosceles 
-   else 
-     raise TriangleError
-    end  
-  end 
+  def is_triangle?
+    first_side + second_side > third_side && first_side + third_side > second_side && second_side + third_side > first_side
+  end   
   
-
+  def triangle_inequality?
+    self.sides.include?(0) || self.sides.any? { |side| side < 0 } 
+  end   
   
   class TriangleError < StandardError
     #"Your case violates one of the inequality rules for Triangles."
   end
+  
+  def kind 
+    case  
+    when self.is_triangle? == false 
+      raise TriangleError
+    when self.triangle_inequality?
+      raise TriangleError
+    when self.sides.uniq.length == 1
+      :equilateral
+    when self.sides.uniq.length == self.sides.length 
+     :scalene 
+    when self.sides.uniq.length == 2 
+     :isosceles 
+    end  
+  end 
+
 end
