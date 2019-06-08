@@ -24,8 +24,8 @@ class Triangle
   end   
   
   class TriangleError < StandardError
-    #"Your case violates one of the inequality rules for Triangles."
   end
+  
   
   def kind 
     case  
