@@ -1,3 +1,6 @@
 class Triangle
-  # write code here
+  def Triangle = ( "equilateral")
+    @Triangle
+    Triangle= :equilateral
+  end
 end
