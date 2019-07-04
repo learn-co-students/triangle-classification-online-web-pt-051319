@@ -14,11 +14,14 @@ class Triangle
   end
 
   def kind
-    # x=y = Z - :isosceles
+      # x, y, z - :equilateral
+      :isosceles if @x = @y && @y == @z
+
 
     # z < x+7 - :scalene
-    # x, y, z - :equilateral
+
     # x=y = Z - :isosceles
+    binding.pry
 
 
 
