@@ -3,29 +3,27 @@ require 'pry'
 class Triangle
   attr_accessor :x, :y, :z
 
-  sides = []
+  @sides = []
 
   def initialize (x, y, z)
-    binding.pry
     @x = x
     @y = y
     @z = z
-    binding.pry
+    @sides = @x, @y, @z
+  end
+
+  def all
+    @sides
   end
 
   def kind
-      # x, y, z - :equilateral
-      :isosceles if @x = @y && @y == @z
+  end
 
 
     # z < x+7 - :scalene
 
     # x=y = Z - :isosceles
     binding.pry
-
-
-
-  end
 
   class TriangleError < StandardError
   end
